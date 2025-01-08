@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/Deirror/rssagg/internal/database"
+	"github.com/go-chi/chi"
 	"github.com/google/uuid"
 )
 
@@ -48,4 +49,24 @@ func (apiCfg *apiConfig) handlerGetFeeds(wr http.ResponseWriter, req *http.Reque
 		return
 	}
 	respondWithJSON(wr, http.StatusOK, databaseFeedsToFeeds(feeds))
+}
+
+func (apiCfg *apiConfig) handlerDeleteFeed(wr http.ResponseWriter, req *http.Request, user database.User) {
+	feedIDStr := chi.URLParam(req, "feedID")
+	feedID, err := uuid.Parse(feedIDStr)
+	if err != nil {
+		respondWithError(wr, http.StatusBadRequest, fmt.Sprintf("Couldn't parse feed follow ID: %v", err))
+		return
+	}
+
+	err = apiCfg.DB.DeleteFeed(req.Context(), database.DeleteFeedParams{
+		ID:     feedID,
+		UserID: user.ID,
+	})
+	if err != nil {
+		respondWithError(wr, http.StatusBadRequest, fmt.Sprintf("Couldn't delete feed: %v", err))
+		return
+	}
+
+	respondWithJSON(wr, http.StatusOK, struct{}{})
 }

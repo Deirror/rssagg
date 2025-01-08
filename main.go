@@ -37,11 +37,11 @@ func main() {
 		log.Fatal("Cannot connect to database: ", err)
 	}
 
+	db := database.New(conn)
 	apiConfig := apiConfig{
 		DB: database.New(conn),
 	}
 
-	db := database.New(conn)
 	go startScraping(db, 10, time.Minute)
 
 	router := chi.NewRouter()
@@ -65,6 +65,8 @@ func main() {
 	v1Router.Post("/feed_follows", apiConfig.middlewareAuth(apiConfig.handlerCreateFeedFollow))
 	v1Router.Get("/feed_follows", apiConfig.middlewareAuth(apiConfig.handlerGetFeedFollows))
 	v1Router.Delete("/feed_follows/{feedFollowID}", apiConfig.middlewareAuth(apiConfig.handlerDeleteFeedFollow))
+	v1Router.Delete("/feeds/{feedID}", apiConfig.middlewareAuth(apiConfig.handlerDeleteFeed))
+	v1Router.Get("/posts", apiConfig.middlewareAuth(apiConfig.handlerGetPostsForUser))
 
 	router.Mount("/v1", v1Router)
 
