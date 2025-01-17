@@ -29,5 +29,17 @@ Setup .env file
 PORT=8080
 DB_URL=
 ```
+Setup DB and generate queries
+-
 
+```bash
+goose postgres <YOUR_DB_URL> up
+sqlc generate
+```
 
+Build & Start the Server
+-
+
+```bash
+go build && ./rssagg
+```
