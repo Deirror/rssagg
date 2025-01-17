@@ -20,7 +20,10 @@ I used Thunder Client Extension in VS Code to perform the REST Requests above.
 Must have installed
 -
 
-go version go1.21.3
+-  go version go1.21.3
+-  go install github.com/pressly/goose/v3/cmd/goose@latest
+-  and other tools which you can find in **Boot.Dev** tutorial
+
 
 Setup .env file
 -
@@ -37,7 +40,7 @@ goose postgres <YOUR_DB_URL> up
 sqlc generate
 ```
 
-Build & Start the Server
+Build and start the server
 -
 
 ```bash
