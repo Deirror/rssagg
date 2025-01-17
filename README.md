@@ -26,4 +26,8 @@ Setup .env file
 -
 
 ```bash
-echo "Hello, World!"
+PORT=8080
+DB_URL=
+```
+
+
