@@ -5,7 +5,7 @@
 > This project was based in [FreeCodeCamp tutorial on Golang](https://www.youtube.com/watch?v=un6ZyFkqFKo).
 
 Description
-=
+-
 
 Web Server(**RSS Feed Agregator**) which allows clients to perform the following operations:
 -  Add RSS feeds to be collection.
@@ -17,8 +17,13 @@ Web Server(**RSS Feed Agregator**) which allows clients to perform the following
 
 I used Thunder Client Extension in VS Code to perform the REST Requests above.
 
-Must have
+Must have installed
 -
 
 go version go1.21.3
 
+Setup .env file
+-
+
+```bash
+echo "Hello, World!"
