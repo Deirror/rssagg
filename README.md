@@ -5,7 +5,7 @@
 > This project was based in [FreeCodeCamp tutorial on Golang](https://www.youtube.com/watch?v=un6ZyFkqFKo).
 
 Description
--
+------
 
 Web Server(**RSS Feed Agregator**) which allows clients to perform the following operations:
 -  Add RSS feeds to be collection.
@@ -14,3 +14,11 @@ Web Server(**RSS Feed Agregator**) which allows clients to perform the following
 -  Add users, feeds.
 -  Delete feeds, feed follows.
 -  Get users, feeds, feed follows and posts.
+
+I used Thunder Client Extension in VS Code to perform the REST Requests above.
+
+Must have
+-
+
+go version go1.21.3
+
