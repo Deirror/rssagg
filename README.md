@@ -17,10 +17,10 @@ Web Server(**RSS Feed Agregator**) which allows clients to perform the following
 
 I used Thunder Client Extension in VS Code to perform the REST Requests above.
 
-Must have installed
+Install
 -
 
--  go version go1.21.3
+-  go version go 1.21.3
 -  go install github.com/pressly/goose/v3/cmd/goose@latest
 -  and other tools which you can find in **Boot.Dev** tutorial
 
